@@ -10,13 +10,7 @@ for(const seat of allSeats){
 			const selectedTicket=document.getElementById("add-seat-list");
 
             //For disable 
-            event.target.setAttribute("disabled",false)
-			// const arr=[];
-			// if (arr.includes(name)) {
-			// 	return
-			// } else {
-			// 	arr.push(name);
-			// }
+            event.target.setAttribute('disabled',false)
 			clickCount++;
 
             const count= getConvertedValue("selectedTicketNumber");
