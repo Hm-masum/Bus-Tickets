@@ -11,6 +11,12 @@ for(const seat of allSeats){
 
             //For disable 
             event.target.setAttribute("disabled",false)
+			// const arr=[];
+			// if (arr.includes(name)) {
+			// 	return
+			// } else {
+			// 	arr.push(name);
+			// }
 			clickCount++;
 
             const count= getConvertedValue("selectedTicketNumber");
@@ -104,6 +110,10 @@ phoneNum.addEventListener('keyup',function(event){
 	if(clickCount!=0 && phoneNumValue!=""){
 		let final_button = document.getElementById('final_button');
 		final_button.classList.remove('btn-disabled');
+	}
+	else{
+		let final_button = document.getElementById('final_button');
+		final_button.classList.add('btn-disabled');
 	}
 })
 
