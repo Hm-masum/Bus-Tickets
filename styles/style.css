@@ -29,4 +29,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.selected-ticket{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
   
