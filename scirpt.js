@@ -11,10 +11,11 @@ for(const seat of allSeats){
 
             //For disable 
             event.target.setAttribute("disabled",false)
+			clickCount++;
 
             const count= getConvertedValue("selectedTicketNumber");
 			if(count==4){
-				alert("lllll");
+				alert("You don't buy more than 4 tickets");
 				return;
 			}
 
@@ -53,7 +54,6 @@ for(const seat of allSeats){
 		    selectedTicket.appendChild(div)
 		    updateTotalValue(550)
 		    updateGrandTotal()
-			clickCount++;
 		}
 	})
 }
@@ -97,11 +97,15 @@ function updateGrandTotal(value){
 	}
 }
 
-// 
-if(clickCount!=0){
-	counsole.log("0")
-}
-
+// final button work
+let phoneNum = document.getElementById('number-field');
+phoneNum.addEventListener('keyup',function(event){
+	let phoneNumValue = phoneNum.value;
+	if(clickCount!=0 && phoneNumValue!=""){
+		let final_button = document.getElementById('final_button');
+		final_button.classList.remove('btn-disabled');
+	}
+})
 
 // Update total Cost
 function updateTotalValue(value){
