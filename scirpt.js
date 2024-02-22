@@ -1,5 +1,4 @@
-
-const count=0;
+let clickCount=0;
 
 const allSeats=document.getElementsByClassName("seat");
 
@@ -19,7 +18,16 @@ for(const seat of allSeats){
 				return;
 			}
 
-			event.target.parentNode.style.backgroundColor="green";
+			// Button work
+			if(count==3){
+				let promoApplyButtonHolder = document.getElementById('promoApplyButton');
+				promoApplyButtonHolder.classList.remove('btn-disabled');
+				
+				const promCodeField = document.getElementById('coupon-code');					
+					promCodeField.disabled = false;
+			}
+
+			event.target.parentNode.style.backgroundColor="#2fd815";
 
 			// upadate seat
             const numOfSeats= getConvertedValue("selectedTicketNumber");
@@ -45,7 +53,7 @@ for(const seat of allSeats){
 		    selectedTicket.appendChild(div)
 		    updateTotalValue(550)
 		    updateGrandTotal()
-
+			clickCount++;
 		}
 	})
 }
@@ -53,8 +61,9 @@ for(const seat of allSeats){
 // Grand total
 function updateGrandTotal(value){
 
+	const totalCost=getConvertedValue("initial-total");
+
 	if(value==undefined){
-		const totalCost=getConvertedValue("initial-total");
 	    document.getElementById("grand-total").innerText=totalCost;
 	}
 	else{
@@ -62,12 +71,35 @@ function updateGrandTotal(value){
 		if(couponCode==="NEW15"){
 			const discounted=totalCost*0.15;
 			document.getElementById("grand-total").innerText=totalCost-discounted;
+
+			let couponError = document.getElementsByClassName('coupon-error');
+			couponError[0].classList.remove('hidden');	
+
+			let CouponSuccess = document.getElementsByClassName('coupon-success');		
+			CouponSuccess[0].classList.remove('hidden');
+		    document.getElementById('promo-block').classList.add('hidden');
 		}
 		else if(couponCode==="Couple20"){
 			const discounted=totalCost*0.2;
 			document.getElementById("grand-total").innerText=totalCost-discounted;
+
+			let couponError = document.getElementsByClassName('coupon-error');
+			couponError[0].classList.remove('hidden');
+
+			let CouponSuccess = document.getElementsByClassName('coupon-success');		
+			CouponSuccess[0].classList.remove('hidden');
+		    document.getElementById('promo-block').classList.add('hidden');
+		}
+		else {
+			let couponError = document.getElementsByClassName('coupon-error');
+			couponError[0].classList.remove('hidden');		
 		}
 	}
+}
+
+// 
+if(clickCount!=0){
+	counsole.log("0")
 }
 
 

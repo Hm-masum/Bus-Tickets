@@ -273,12 +273,12 @@
                                 </div>						
                                 <div id="promo-block" class="my-4">
                                     <label class="input input-bordered flex items-center gap-2 mb-4 lg:justify-between">
-                                        <input id="coupon-code" type="text" placeholder="Apply Coupon Code" />
-                                        <button onclick="updateGrandTotal('apply-btn')" id="promoApplyButton" class="btn btn-success btn-sm text-white">Apply</button>									
+                                        <input id="coupon-code" type="text" placeholder="Apply Coupon Code" disabled/>
+                                        <button onclick="updateGrandTotal('apply-btn')" id="promoApplyButton" class="btn btn-success btn-sm btn-disabled text-white">Apply</button>									
                                     </label>
-                                    <p class="promo-error hidden text-center">Please enter a valid Promo Code</p>							
+                                    <p class="coupon-error hidden text-red-500 text-center">Your coupon code is wrong. Please enter a valid coupon Code</p>							
                                 </div>
-                                <p class="promo-success hidden text-center text-semibold text-success">Congrats! Your Promo Applied Successfully. Have a Nice Journey!!</p>
+                                <p class="coupon-success hidden text-center text-semibold text-success">Congratulations! Your coupon Applied Successfully.</p>
                                 <div class="flex justify-between border-dashed border-b-2 py-2">
                                     <div class="">Grand Total</div>							
                                     <div class="">BDT <span id="grand-total">0</span></div>							
@@ -302,7 +302,7 @@
                                 </div>
                                 <p class="final-error hidden text-center">Please Book the Seat First & Put the Phone</p>
                                 <div class="my-4">
-                                    <button onclick="my_modal_2.showModal()" id="final_button" class="btn btn-wide bg-primaryColor text-white py-4 text-lg w-full h-14 btn-disabled">Next</button>
+                                    <button onclick="my_modal_2.showModal()" id="final_button" class="btn bg-green-500 text-white py-4 text-lg w-full h-14">Next</button>
                                 </div>	
                                 <div class="flex flex-row justify-evenly pb-4">
                                     <div class="underline underline-offset-4 text-primaryTextColor">Terms and Conditions</div>
@@ -315,21 +315,18 @@
         </section>
 
         <!-- Notification -->
-        <section>
-            <dialog id="my_modal_2" class="modal">
-	           <div class="modal-box text-center">
-		          <!-- <img class="mx-auto py-4" src="images/thank-icon.png" alt="thank-icon" /> -->
-		          <h3 class="font-bold text-lg text-primaryColor py-4">Success</h3>
-		          <h4 class="text-black py-4 font-bold">Thank you for Booking Our Bus Seats.</h4>
-		          <p class="py-4">We are working hard to find the best service and deals for you. 
-		          Shortly you will find a confirmation in your email.</p>
-		          <p class="py-4">Press ESC key or click outside to close</p>
-			      <form method="dialog" class="modal-backdrop">
-				  <button class="btn btn-success">Continue</button>
-			      </form>
-	           </div>
-           </dialog>
-        </section>
+        <dialog id="my_modal_2" class="modal">
+            <div class="modal-box text-center">
+               <img class="mx-auto py-4" src="images/success.png" alt="" />
+               <h3 class="font-semibold text-2xl text-green-500 py-4">Success</h3>
+               <h4 class="text-black my-3 font-semibold">Thank you for Booking Our Bus Seats. We are working hard to find the best service and deals for you.</h4>
+               <p class="my-2">Shortly you will find a confirmation in your email.</p>
+               <p class="mb-4">Press ESC key or click outside to close</p>
+               <form method="dialog" class="modal-backdrop">
+               <button class="btn bg-green-500 rounded-3xl">Continue</button>
+               </form>
+            </div>
+        </dialog>
     </main>
 
     <!-- Navber section -->
